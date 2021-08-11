@@ -16,6 +16,9 @@ public class SpaceShipControls : MonoBehaviour
     public float screenRight;
     public float bulletForce;
 
+    public float deathForce;
+    
+
     public GameObject bullet;
     
 
@@ -29,7 +32,6 @@ public class SpaceShipControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //get input from keyboard and apply thrust
         //Check for input from the keyboard
         thrustInput = Input.GetAxis("Vertical");
         turnInput = Input.GetAxis("Horizontal");
@@ -43,10 +45,12 @@ public class SpaceShipControls : MonoBehaviour
             Destroy(newBullet, 3.5f);
         }
 
+        //rotate the ship
+        transform.Rotate(Vector3.forward * turnInput * Time.deltaTime * -turnThrust);
 
 
         //Screen Wrapping (cheking coords)
-
+        
         Vector2 newPos = transform.position;
         if(transform.position.y > screenTop)
         {
@@ -70,7 +74,15 @@ public class SpaceShipControls : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddRelativeForce(Vector2.up * thrustInput);
-        rb.AddTorque(-turnInput);
+        //rb.AddTorque(-turnInput);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.relativeVelocity.magnitude > deathForce)
+        {
+            Debug.Log("Death");
+        }
     }
 
 }

@@ -12,7 +12,7 @@ public class AsteroidScript : MonoBehaviour
     public float screenBottom;
     public float screenLeft;
     public float screenRight;
-
+    public int asteroidSize; //3, 1.5 & 1
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +23,14 @@ public class AsteroidScript : MonoBehaviour
 
         rb.AddForce(thrust);
         rb.AddTorque(torque);
+
+        asteroidSize = 3;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-
         //Screen Wrapping (cheking coords)
         Vector2 newPos = transform.position;
         if (transform.position.y > screenTop)
@@ -51,4 +51,38 @@ public class AsteroidScript : MonoBehaviour
         }
         transform.position = newPos;
     }
+
+    //make one prefub for all asteroid's types
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //check to see if its a bullet
+        if(collision.CompareTag("bullet"))
+        {
+            Destroy(collision.gameObject);
+            
+            //check size of the asteroid and spawn the next smaller size
+            if(asteroidSize >= 2)
+            {
+                //spawn smaller
+
+            }
+            else if(asteroidSize == 1)
+            {
+                //destroy the asteroid
+
+
+            }
+        }
+
+    }
+
+    //every 3 second we will create new asteroid
+    //asteroid's sprite will choise randomly from folder Asteroids
+    //while creating asteroid size will choise randomly
+    private void FixedUpdate()
+    {
+        
+    }
+
 }
