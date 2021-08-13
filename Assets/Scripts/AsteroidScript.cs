@@ -14,6 +14,11 @@ public class AsteroidScript : MonoBehaviour
     public float screenRight;
     public int asteroidSize; //3, 1.5 & 1
 
+    public GameObject asteroidMedium;
+    public GameObject asteroidSmall;
+
+    private List<GameObject> asteroids;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +29,7 @@ public class AsteroidScript : MonoBehaviour
         rb.AddForce(thrust);
         rb.AddTorque(torque);
 
-        asteroidSize = 3;
+        //asteroidSize = 3;
 
     }
 
@@ -62,17 +67,29 @@ public class AsteroidScript : MonoBehaviour
             Destroy(collision.gameObject);
             
             //check size of the asteroid and spawn the next smaller size
-            if(asteroidSize >= 2)
+            if(asteroidSize == 3)
             {
                 //spawn smaller
-
+                Instantiate(asteroidMedium, transform.position, transform.rotation);
+                Instantiate(asteroidMedium, transform.position, transform.rotation);
+                //asteroid1.GetComponent<AsteroidScript>().asteroidSize = 2;
+                //asteroid2.GetComponent<AsteroidScript>().asteroidSize = 2;
+            }
+            else if (asteroidSize == 2)
+            {
+                Instantiate(asteroidSmall, transform.position, transform.rotation);
+                Instantiate(asteroidSmall, transform.position, transform.rotation);
+                //asteroid1.GetComponent<AsteroidScript>().asteroidSize = 1;
+                //asteroid2.GetComponent<AsteroidScript>().asteroidSize = 1;
             }
             else if(asteroidSize == 1)
             {
                 //destroy the asteroid
-
+                
 
             }
+
+            Destroy(gameObject);
         }
 
     }
@@ -82,7 +99,9 @@ public class AsteroidScript : MonoBehaviour
     //while creating asteroid size will choise randomly
     private void FixedUpdate()
     {
-        
+        if (Time.time)
+        //Instantiate(asteroidMedium, transform.position, transform.rotation);
+        //Instantiate(asteroidMedium, transform.position, transform.rotation);
     }
 
 }

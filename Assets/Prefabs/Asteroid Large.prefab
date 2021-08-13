@@ -140,3 +140,8 @@ MonoBehaviour:
   screenBottom: -12
   screenLeft: -15
   screenRight: 15
+  asteroidSize: 3
+  asteroidMedium: {fileID: 8779452655059367252, guid: a3fa430e4ccef7a45a995ee1a4b8b4ec,
+    type: 3}
+  asteroidSmall: {fileID: 6911510080050859635, guid: f63001d14c0602d44bc46cca405fbcaf,
+    type: 3}

@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 720205537016623026}
   - component: {fileID: 8156127207892074460}
+  - component: {fileID: 2953754655720781921}
+  - component: {fileID: 5403680013844643017}
+  - component: {fileID: 9181757370555019154}
   m_Layer: 0
   m_Name: Asteroid Medium
   m_TagString: Untagged
@@ -26,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8779452655059367252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.6973515, y: -4.348975, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,3 +84,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2953754655720781921
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779452655059367252}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1.5393803
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &5403680013844643017
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779452655059367252}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.35
+--- !u!114 &9181757370555019154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779452655059367252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9f19dd94d6c1941adce53aa9a87bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxThrust: 280
+  maxTorque: 100
+  rb: {fileID: 2953754655720781921}
+  screenTop: 12
+  screenBottom: -12
+  screenLeft: -15
+  screenRight: 15
+  asteroidSize: 2
+  asteroidMedium: {fileID: 6911510080050859635, guid: f63001d14c0602d44bc46cca405fbcaf,
+    type: 3}
+  asteroidSmall: {fileID: 6911510080050859635, guid: f63001d14c0602d44bc46cca405fbcaf,
+    type: 3}
