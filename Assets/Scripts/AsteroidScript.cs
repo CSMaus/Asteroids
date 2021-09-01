@@ -14,6 +14,7 @@ public class AsteroidScript : MonoBehaviour
     public float screenRight;
     public int asteroidSize; //3, 1.5 & 1
 
+    public GameObject asteroidLarge;
     public GameObject asteroidMedium;
     public GameObject asteroidSmall;
 
@@ -84,24 +85,21 @@ public class AsteroidScript : MonoBehaviour
             }
             else if(asteroidSize == 1)
             {
-                //destroy the asteroid
-                
+                int rand = Random.Range(0, 100);
 
+                if (rand >= 68)
+                {
+                    Vector2 newPos = transform.position;
+                    newPos.y = screenBottom;
+                    newPos.x = screenLeft;
+                    transform.position = newPos;
+
+                    Instantiate(asteroidSmall, transform.position, transform.rotation);
+                }
             }
 
             Destroy(gameObject);
         }
 
     }
-
-    //every 3 second we will create new asteroid
-    //asteroid's sprite will choise randomly from folder Asteroids
-    //while creating asteroid size will choise randomly
-    private void FixedUpdate()
-    {
-        if (Time.time)
-        //Instantiate(asteroidMedium, transform.position, transform.rotation);
-        //Instantiate(asteroidMedium, transform.position, transform.rotation);
-    }
-
 }

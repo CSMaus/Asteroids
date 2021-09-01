@@ -133,15 +133,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9f19dd94d6c1941adce53aa9a87bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxThrust: 280
-  maxTorque: 100
+  maxThrust: 230
+  maxTorque: 70
   rb: {fileID: 2953754655720781921}
   screenTop: 12
   screenBottom: -12
   screenLeft: -15
   screenRight: 15
   asteroidSize: 2
-  asteroidMedium: {fileID: 6911510080050859635, guid: f63001d14c0602d44bc46cca405fbcaf,
+  asteroidLarge: {fileID: 1423182928837451046, guid: ac2206df8ba563b4da015d1b37ed3b2b,
     type: 3}
+  asteroidMedium: {fileID: 8779452655059367252}
   asteroidSmall: {fileID: 6911510080050859635, guid: f63001d14c0602d44bc46cca405fbcaf,
     type: 3}
