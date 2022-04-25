@@ -56,7 +56,7 @@ public class SpaceShipControls : MonoBehaviour
         {
             newPos.y = screenBottom;
         }
-        if(transform.position.y < screenBottom)
+        else if(transform.position.y < screenBottom)
         {
             newPos.y = screenTop;
         }
@@ -64,7 +64,7 @@ public class SpaceShipControls : MonoBehaviour
         {
             newPos.x = screenRight;
         }
-        if (transform.position.x > screenRight)
+        else if (transform.position.x > screenRight)
         {
             newPos.x = screenLeft;
         }
@@ -74,9 +74,10 @@ public class SpaceShipControls : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddRelativeForce(Vector2.up * thrustInput);
-        //rb.AddTorque(-turnInput);
+        rb.AddTorque(-turnInput);
     }
 
+    // acteroids impact (столкновение с астероидами)
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.relativeVelocity.magnitude > deathForce)
