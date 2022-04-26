@@ -754,7 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1810840925}
   thrust: 1
-  turnThrust: 100
+  turnThrust: 10
   screenTop: 11
   screenBottom: -11
   screenLeft: -14

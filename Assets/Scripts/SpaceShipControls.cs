@@ -45,7 +45,7 @@ public class SpaceShipControls : MonoBehaviour
             Destroy(newBullet, 3.5f);
         }
 
-        //rotate the ship
+        //rotate the ship; z axis = Vector3.forward
         transform.Rotate(Vector3.forward * turnInput * Time.deltaTime * -turnThrust);
 
 
